@@ -1,8 +1,10 @@
 .env
+.renv/
 
 # Python
 __pycache__/
 *.py[cod]
+*.pyc
 *.sqlite3
 
 # Django
@@ -19,3 +21,8 @@ media/
 # VSCode/PyCharm
 .vscode/
 .idea/
+.renv/
+
+.coverage
+
+Documents/

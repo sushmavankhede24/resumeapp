@@ -5,41 +5,83 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Profile',
+            name="Profile",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('bio', models.TextField()),
-                ('email', models.EmailField(max_length=254)),
-                ('profile_picture', models.ImageField(blank=True, null=True, upload_to='profile_pics/')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("bio", models.TextField()),
+                ("email", models.EmailField(max_length=254)),
+                (
+                    "profile_picture",
+                    models.ImageField(blank=True, null=True, upload_to="profile_pics/"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Project',
+            name="Project",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('image', models.ImageField(blank=True, null=True, upload_to='project_images/')),
-                ('url', models.URLField(blank=True, null=True)),
-                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='projects', to='homeapp.profile')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                (
+                    "image",
+                    models.ImageField(blank=True, null=True, upload_to="project_images/"),
+                ),
+                ("url", models.URLField(blank=True, null=True)),
+                (
+                    "profile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="projects",
+                        to="homeapp.profile",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Skill',
+            name="Skill",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('skill_name', models.CharField(max_length=50)),
-                ('proficiency', models.IntegerField(default=0)),
-                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='skills', to='homeapp.profile')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("skill_name", models.CharField(max_length=50)),
+                ("proficiency", models.IntegerField(default=0)),
+                (
+                    "profile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="skills",
+                        to="homeapp.profile",
+                    ),
+                ),
             ],
         ),
     ]
